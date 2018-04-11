@@ -24,9 +24,8 @@ class Library
       book if book.author_first_name == name_ary[0]
     end.compact
     result_hash = Hash.new(0)
-    # book_ary[book_ary.each(&:title)]
+
     result_hash { (book_ary.each(&:title)) => book_ary.each }
     result_hash
-    binding.pry
   end
 end
