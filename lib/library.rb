@@ -9,4 +9,8 @@ class Library
   def add_to_collection(book)
     @books << book.shift
   end
+
+  def include?(title)
+    @books.map(&:title).include?(title)
+  end
 end

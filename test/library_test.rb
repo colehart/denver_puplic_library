@@ -42,4 +42,13 @@ class LibraryTest < Minitest::Test
     assert_instance_of Book, @dpl.books[2]
     assert_equal 'Villette', @dpl.books[2].title
   end
+
+  def test_it_can_lookup_books_in_collection
+    @dpl.add_to_collection(@jane_eyre)
+    @dpl.add_to_collection(@mockingbird)
+    @dpl.add_to_collection(@villette)
+
+    assert @dpl.include?('To Kill a Mockingbird')
+    refute @dpl.include?('A Connecticut Yankee in King Arthur\'s Court')
+  end
 end
