@@ -66,6 +66,6 @@ class LibraryTest < Minitest::Test
     @dpl.add_to_collection(@mockingbird)
     @dpl.add_to_collection(@villette)
     assert_instance_of Hash, @dpl.find_by_author('Charlotte Bronte')
-    # assert_equal ['Jane Eyre', 'Villette'], @dpl.find_by_author('Charlotte Bronte').keys
+    assert_equal ['Jane Eyre', 'Villette'], @dpl.find_by_author('Charlotte Bronte').keys
   end
 end
