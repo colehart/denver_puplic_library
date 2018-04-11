@@ -17,4 +17,14 @@ class Library
   def card_catalogue
     @books.sort_by!(&:author_last_name)
   end
+
+  def find_by_author(author_name)
+    name_ary = author_name.split(" ")
+    book_ary = @books.map do |book|
+      book if book.author_first_name == name_ary[0]
+    end.compact
+    book_hash = Hash.new(0)
+    book_hash << [book_ary.each(&:title)]= book_ary.each
+    end
+  end
 end

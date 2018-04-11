@@ -60,4 +60,12 @@ class LibraryTest < Minitest::Test
     assert_equal 'Bronte', @dpl.books[0].author_last_name
     assert_equal 'Lee', @dpl.books[2].author_last_name
   end
+
+  def test_it_can_find_by_author_name
+    @dpl.add_to_collection(@jane_eyre)
+    @dpl.add_to_collection(@mockingbird)
+    @dpl.add_to_collection(@villette)
+    assert_instance_of Hash, @dpl.find_by_author('Charlotte Bronte')
+    # assert_equal ['Jane Eyre', 'Villette'], @dpl.find_by_author('Charlotte Bronte').keys
+  end
 end
