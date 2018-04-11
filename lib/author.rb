@@ -1,4 +1,3 @@
-require './lib/book'
 # Author class
 class Author
   attr_reader :first_name,
