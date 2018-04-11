@@ -1,5 +1,4 @@
 require './test/test_helper'
-require './lib/book'
 
 class BookTest < Minitest::Test
   def setup
