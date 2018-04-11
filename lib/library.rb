@@ -13,4 +13,8 @@ class Library
   def include?(title)
     @books.map(&:title).include?(title)
   end
+
+  def card_catalogue
+    @books.sort_by!(&:author_last_name)
+  end
 end

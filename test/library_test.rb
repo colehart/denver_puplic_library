@@ -51,4 +51,13 @@ class LibraryTest < Minitest::Test
     assert @dpl.include?('To Kill a Mockingbird')
     refute @dpl.include?('A Connecticut Yankee in King Arthur\'s Court')
   end
+
+  def test_it_can_return_sorted_array_by_author_last_name
+    @dpl.add_to_collection(@jane_eyre)
+    @dpl.add_to_collection(@mockingbird)
+    @dpl.add_to_collection(@villette)
+    @dpl.card_catalogue
+    assert_equal 'Bronte', @dpl.books[0].author_last_name
+    assert_equal 'Lee', @dpl.books[2].author_last_name
+  end
 end
