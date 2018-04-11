@@ -23,9 +23,6 @@ class Library
     book_ary = @books.map do |book|
       book if book.author_first_name == name_ary[0]
     end.compact
-    result_hash = Hash.new(0)
-
-    result_hash { (book_ary.each(&:title)) => book_ary.each }
-    result_hash
+    book_ary.group_by(&:title)
   end
 end
