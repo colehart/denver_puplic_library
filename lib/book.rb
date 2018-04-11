@@ -9,6 +9,10 @@ class Book
     @author_first_name = book_hash[:author_first_name]
     @author_last_name  = book_hash[:author_last_name]
     @title             = book_hash[:title]
-    @publication_date  = book_hash[:publication_date]
+    @publication_date  = grab_year(book_hash[:publication_date])
+  end
+
+  def grab_year(date)
+    date.split(' ').last
   end
 end

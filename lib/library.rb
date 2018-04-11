@@ -25,4 +25,11 @@ class Library
     end.compact
     book_ary.group_by(&:title)
   end
+
+  def find_by_publication_date(date)
+    book_ary = @books.map do |book|
+      book if book.publication_date == date
+    end.compact
+    book_ary.group_by(&:title)
+  end
 end

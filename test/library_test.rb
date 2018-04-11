@@ -29,7 +29,7 @@ class LibraryTest < Minitest::Test
     assert_equal 'Charlotte', @dpl.books[0].author_first_name
     assert_equal 'Bronte', @dpl.books[0].author_last_name
     assert_equal 'Jane Eyre', @dpl.books[0].title
-    assert_equal 'October 16, 1847', @dpl.books[0].publication_date
+    assert_equal '1847', @dpl.books[0].publication_date
   end
 
   def test_it_can_add_more_books_to_collection
@@ -67,5 +67,13 @@ class LibraryTest < Minitest::Test
     @dpl.add_to_collection(@villette)
     assert_instance_of Hash, @dpl.find_by_author('Charlotte Bronte')
     assert_equal ['Jane Eyre', 'Villette'], @dpl.find_by_author('Charlotte Bronte').keys
+  end
+
+  def test_it_can_find_by_publication_date
+    @dpl.add_to_collection(@jane_eyre)
+    @dpl.add_to_collection(@mockingbird)
+    @dpl.add_to_collection(@villette)
+    assert_instance_of Hash, @dpl.find_by_publication_date('1960')
+    assert_equal ['To Kill a Mockingbird'], @dpl.find_by_publication_date('1960').keys
   end
 end
