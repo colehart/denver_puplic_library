@@ -41,6 +41,7 @@ class LibraryTest < Minitest::Test
     assert_equal 'Harper', @dpl.books[1].author_first_name
     assert_instance_of Book, @dpl.books[2]
     assert_equal 'Villette', @dpl.books[2].title
+    # assert_equal [@jane_eyre, @mockingbird, @villette], @dpl.books
   end
 
   def test_it_can_lookup_books_in_collection

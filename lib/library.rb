@@ -19,17 +19,17 @@ class Library
   end
 
   def find_by_author(author_name)
-    name_ary = author_name.split(' ')
-    book_ary = @books.map do |book|
-      book if book.author_first_name == name_ary[0]
+    names = author_name.split(' ')
+    collection = @books.find_all do |book|
+      book.author_first_name == names[0]
     end.compact
-    book_ary.group_by(&:title)
+    collection.group_by(&:title)
   end
 
   def find_by_publication_date(date)
-    book_ary = @books.map do |book|
-      book if book.publication_date == date
+    collection = @books.find_all do |book|
+      book.publication_date == date
     end.compact
-    book_ary.group_by(&:title)
+    collection.group_by(&:title)
   end
 end
