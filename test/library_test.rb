@@ -53,9 +53,9 @@ class LibraryTest < Minitest::Test
     @dpl.add_to_collection(@jane_eyre)
     @dpl.add_to_collection(@mockingbird)
     @dpl.add_to_collection(@villette)
-    @dpl.card_catalogue
-    assert_equal 'Bronte', @dpl.books[0].author_last_name
-    assert_equal 'Lee', @dpl.books[2].author_last_name
+
+    expected = [@jane_eyre, @villette, @mockingbird]
+    assert_equal expected, @dpl.card_catalogue
   end
 
   def test_it_can_find_by_author_name

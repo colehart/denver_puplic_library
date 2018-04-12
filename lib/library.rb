@@ -15,7 +15,7 @@ class Library
   end
 
   def card_catalogue
-    @books.sort_by!(&:author_last_name)
+    @books.sort_by(&:author_last_name)
   end
 
   def find_by_author(author_name)
