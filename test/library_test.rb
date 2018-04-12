@@ -8,9 +8,9 @@ class LibraryTest < Minitest::Test
     @charlotte_bronte = Author.new(first_name: 'Charlotte',
                                    last_name: 'Bronte')
     @jane_eyre = @charlotte_bronte.add_book('Jane Eyre', 'October 16, 1847')
-    @villette  = @charlotte_bronte.add_book('Villette', '1853')
+    @villette = @charlotte_bronte.add_book('Villette', '1853')
 
-    @harper_lee  = Author.new(first_name: 'Harper',
+    @harper_lee = Author.new(first_name: 'Harper',
                               last_name: 'Lee')
     @mockingbird = @harper_lee.add_book('To Kill a Mockingbird', 'July 11, 1960')
   end
@@ -37,11 +37,7 @@ class LibraryTest < Minitest::Test
     @dpl.add_to_collection(@mockingbird)
     @dpl.add_to_collection(@villette)
 
-    assert_instance_of Book, @dpl.books[1]
-    assert_equal 'Harper', @dpl.books[1].author_first_name
-    assert_instance_of Book, @dpl.books[2]
-    assert_equal 'Villette', @dpl.books[2].title
-    # assert_equal [@jane_eyre, @mockingbird, @villette], @dpl.books
+    assert_equal [@jane_eyre, @mockingbird, @villette], @dpl.books
   end
 
   def test_it_can_lookup_books_in_collection

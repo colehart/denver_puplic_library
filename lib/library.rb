@@ -7,7 +7,7 @@ class Library
   end
 
   def add_to_collection(book)
-    @books << book.shift
+    @books << book
   end
 
   def include?(title)
