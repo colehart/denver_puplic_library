@@ -22,14 +22,14 @@ class Library
     names = author_name.split(' ')
     collection = @books.find_all do |book|
       book.author_first_name == names[0]
-    end.compact
+    end
     collection.group_by(&:title)
   end
 
   def find_by_publication_date(date)
     collection = @books.find_all do |book|
       book.publication_date == date
-    end.compact
+    end
     collection.group_by(&:title)
   end
 end
